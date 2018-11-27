@@ -14,7 +14,10 @@
 
 [image1]: https://github.com/AzizDulaijan/Project-Kinematics-Pick-Place/blob/master/images%20for%20project%202/Capture%20forword%20kin.PNG
 [image2]: https://github.com/AzizDulaijan/Project-Kinematics-Pick-Place/blob/master/images%20for%20project%202/theta%201%2C2%2C3.PNG
-[image3]: ./misc_images/misc2.png
+[image3]: https://github.com/AzizDulaijan/Project-Kinematics-Pick-Place/blob/master/images%20for%20project%202/9%20got.PNG
+[image4]: 
+[image5]:
+[image6]: 
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/972/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -120,10 +123,24 @@ theta6 = atan2(-R3_6[1,1],R3_6[1,0])
 ### Project Implementation
 
 #### 1. Fill in the `IK_server.py` file with properly commented python code for calculating Inverse Kinematics based on previously performed Kinematic Analysis. Your code must guide the robot to successfully complete 8/10 pick and place cycles. Briefly discuss the code you implemented and your results. 
->>> insert image of 9 tubes in
+
+![alt text][image3]
+
+After calculating the formals of each joint angle from the end effector information, I started using the given debug code to write the IK_server. I worked on the debug code until I got sub 0.1 error values for the position and the orientation. 
+
+```
+Theta 1 error is: 0.00093770
+Theta 2 error is: 0.00434235
+Theta 3 error is: 0.03355336
+Theta 4 error is: 0.02929172
+Theta 5 error is: 0.02079942
+Theta 6 error is: 0.04124400
+```
+
+Then, I launched the safe_spawner.sh with demo mode parameter set to false. The IK_server worked and succeeded 9 operations as can be seen from the image Above. For reasons that I couldn't solve there is one place that the arm can't reach which is the bottom tube.
 
 
-###The Inverse Kinematics code:
+### The Inverse Kinematics code:
 ```python
         for x in xrange(0, len(req.poses)):
             # IK code starts here
@@ -199,10 +216,9 @@ theta6 = atan2(-R3_6[1,1],R3_6[1,0])
     	    theta5 = atan2(sqrt(R3_6[0,2]**2 + R3_6[2,2]**2), R3_6[1,2])
     	    theta6 = atan2(-R3_6[1,1],R3_6[1,0])
 ```
+### pick and place steps in images:
 
-Here I'll talk about the code, what techniques I used, what worked and why, where the implementation might fail and how I might improve it if I were going to pursue this project further.  
-
-
-And just for fun, another example image:
-![alt text][image3]
+![alt text][image4]
+![alt text][image5]
+![alt text][image6]
 

@@ -13,7 +13,7 @@
 [//]: # (Image References)
 
 [image1]: https://github.com/AzizDulaijan/Project-Kinematics-Pick-Place/blob/master/images%20for%20project%202/Capture%20forword%20kin.PNG
-[image2]: ./misc_images/misc3.png
+[image2]: https://github.com/AzizDulaijan/Project-Kinematics-Pick-Place/blob/master/images%20for%20project%202/theta%201%2C2%2C3.PNG
 [image3]: ./misc_images/misc2.png
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/972/view) Points
@@ -87,7 +87,7 @@ now the wrist center can be calculated
 
 Theta 1 to 3 calculation can be seen from the image below: 
 
->> insert the image
+![alt text][image2]
 
 as for theta 4 to 6 , they can be drived in the fallowing steps:
 1 - extract Rotation matrixes from the homo.. trasform tables 
@@ -116,7 +116,7 @@ theta6 = atan2(-R3_6[1,1],R3_6[1,0])
 
 And here's where you can draw out and show your math for the derivation of your theta angles. 
 
-![alt text][image2]
+
 
 ### Project Implementation
 

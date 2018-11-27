@@ -12,7 +12,7 @@
 
 [//]: # (Image References)
 
-[image1]: ./misc_images/misc1.png
+[image1]: ./images for project 2/Capture forword kin.PNG
 [image2]: ./misc_images/misc3.png
 [image3]: ./misc_images/misc2.png
 

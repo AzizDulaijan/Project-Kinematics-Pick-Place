@@ -12,7 +12,7 @@
 
 [//]: # (Image References)
 
-[image1]: ./images for project 2/Capture forword kin.PNG
+[image1]: https://github.com/AzizDulaijan/Project-Kinematics-Pick-Place/blob/master/images%20for%20project%202/Capture%20forword%20kin.PNG
 [image2]: ./misc_images/misc3.png
 [image3]: ./misc_images/misc2.png
 

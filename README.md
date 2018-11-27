@@ -25,10 +25,7 @@
 ### Kinematic Analysis
 #### 1. Run the forward_kinematics demo and evaluate the kr210.urdf.xacro file to perform kinematic analysis of Kuka KR210 robot and derive its DH parameters.
 
-I first lunched the forward_kinematics to learn get fimeliar with kuku arm, and identify joints. then after writing the forward kinematics code I compired the end effictor postion form diffrent angle values between the demo and the code.  
-
-Here is an example of how to include an image in your writeup.
-After running the forward_kinematics demo...
+I first launched the forward_kinematics demo to get familiar with kuku arm, and identify its joints. then after writing the forward kinematics code I compared the end effector position from different angle values between the demo and the code.
 
 ![alt text][image1]
 
@@ -52,7 +49,7 @@ TF_MAT = [[cos(θi)             ,-sin(θi)       ,0                          ,ai
         [ sin(θi)*sin(αi-1), cos(θi)*sin(αi-1),  cos(αi-1),  cos(αi-1)*di],
         [                   0,                   0,            0,               1]]
 ``` 
-using the Transfomation matrix  and the DH table, I can ganerate the transformation matriecs for each joint. each homogeneous transform can be created by inserting the DH prameters values...
+I calculated individual transformation matrices about each joint by substituting the DH parameters values into the Homogeneous transformation matrix between the base and the first link. Then substituting between the first and second and so on. Until the last link to the end effector as can be seen in the code below. 
 
 ```python
     # Homogeneous Transforms
@@ -72,25 +69,26 @@ using the Transfomation matrix  and the DH table, I can ganerate the transformat
     T0_G = T0_6 * T6_G
 ```
 
-T0_1 = R...
-
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
-the endeffector postion is given, and joints 6,5,4 are a part of a sphiracl wrist. meaing teh the wrist center is the postion of these joints. the wrist center can be calculated from T6_G [homogenions trasform matrix] from FK.
-wx,wy,wz ...
-nx,ny,nz can be found from the orintation of the wrist (roll, pitch, yaw)
-when [subing] the orintation values to the Homo.. Trasform.. we can drive (Ns)
-Rrpy = R_z(yaw) * R_y(pitch) * R_x(roll)
-and because the UDRF model does not follow the DH convention, the Rrpy need to corrected with rotation about the Z axes , and Y axes. 
-Rrpy = Rrpy * (R_z(pi)* R_y(-pi/2))
+#### Inverse Position Kinematics:
+When substituting the orientation values of the EE to rotation matrices we can drive:
+
+>> Rrpy = R_z(yaw) * R_y(pitch) * R_x(roll)
+
+and because the UDRF model does not follow the DH convention, the Rrpy need to corrected with rotation about the Z axes , and Y axes.
+
+>> R_corr = (R_z(pi)* R_y(-pi/2))
+
 now the wrist center can be calculated 
 
+#### inverse Orientation Kinematics:
 Theta 1 to 3 calculation can be seen from the image below: 
 
 ![alt text][image2]
 
 as for theta 4 to 6 , they can be drived in the fallowing steps:
-1 - extract Rotation matrixes from the homo.. trasform tables 
+1 - extract Rotation matrixes from the Homogeneous transformation matrix:
 ```python 
 	R0_1 = T0_1[0:3,0:3]
 	R0_2 = T0_2[0:3,0:3]
@@ -100,10 +98,13 @@ as for theta 4 to 6 , they can be drived in the fallowing steps:
 	R0_6 = T0_6[0:3,0:3]
 	R0_G = T0_G[0:3,0:3]
 ```
-2- get tht rotation matrix R3_6 
-Rrpy0_6 = Rrpy
-Rrpy0_3 = R0_3(sub={q1: theta1, q2: theta2, q3: theta3})
-R3_6 = inv(Rrpy0_3) * Rrpy0_6
+2- get the rotation matrix R3_6: 
+
+>>Rrpy0_6 = Rrpy
+
+>>Rrpy0_3 = R0_3(sub={q1: theta1, q2: theta2, q3: theta3})
+
+>>R3_6 = inv(Rrpy0_3) * Rrpy0_6
 
 3- calculate the matrix R3_6 angles witch acount for theta4, theta5, and theta6.
 ```python
@@ -111,12 +112,6 @@ theta4 = atan2(R3_6[2,2], -R3_6[0,2])
 theta5 = atan2(sqrt(R3_6[0,2]**2 + R3_6[2,2]**2), R3_6[1,2])
 theta6 = atan2(-R3_6[1,1],R3_6[1,0])
 ```
-
->> take the image form the course for the first three joints and add the solution to it using note app. shortlly explian the other three joints for the rest. 
-
-And here's where you can draw out and show your math for the derivation of your theta angles. 
-
-
 
 ### Project Implementation
 

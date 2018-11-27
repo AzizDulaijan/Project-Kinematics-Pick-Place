@@ -72,15 +72,19 @@ I calculated individual transformation matrices about each joint by substituting
 #### 3. Decouple Inverse Kinematics problem into Inverse Position Kinematics and inverse Orientation Kinematics; doing so derive the equations to calculate all individual joint angles.
 
 #### Inverse Position Kinematics:
+The end effector (EE) position is given, and joints 6,5,4 are a part of a spherical wrist. meaning the the wrist center (Wc) is the position of these joints. the wrist center can be calculated from the gripper_link homogeneous transform matrix. 
+
+>> Wc = EE_postion - ( DH_d6 )* (Rrpy[z-axis]*R_corr) 
+
 When substituting the orientation values of the EE to rotation matrices we can drive:
 
 >> Rrpy = R_z(yaw) * R_y(pitch) * R_x(roll)
 
-and because the UDRF model does not follow the DH convention, the Rrpy need to corrected with rotation about the Z axes , and Y axes.
+and because the UDRF model does not follow the DH convention, Rrpy need to corrected with rotation about the Z axes , and Y axes.
 
 >> R_corr = (R_z(pi)* R_y(-pi/2))
 
-now the wrist center can be calculated 
+now the wrist center position can be calculated. 
 
 #### inverse Orientation Kinematics:
 Theta 1 to 3 calculation can be seen from the image below: 

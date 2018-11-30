@@ -15,7 +15,7 @@
 [image1]: Images/Capture%20forword%20kin.PNG
 [image2]: Images/theta%201%2C2%2C3.PNG
 [image3]: Images/9%20got.PNG
-[image4]: Images/plan%20to%20tube.PNG
+[image4]: Images/plan_to_tube.PNG
 [image5]: Images/retreving.PNG
 [image6]: Images/caculating.PNG
 [image7]: Images/joints_annotation_DH.PNG

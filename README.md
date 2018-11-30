@@ -12,12 +12,12 @@
 
 [//]: # (Image References)
 
-[image1]: images/Capture_forword_kin.PNG
-[image2]: images/theta%201%2C2%2C3.PNG
-[image3]: images/9%20got.PNG
-[image4]: images/plan%20to%20tube.PNG
-[image5]: images/retreving.PNG
-[image6]: images/caculating.PNG
+[image1]: Images/Capture%20forword%20kin.PNG
+[image2]: Images/theta%201%2C2%2C3.PNG
+[image3]: Images/9%20got.PNG
+[image4]: Images/plan%20to%20tube.PNG
+[image5]: Images/retreving.PNG
+[image6]: Images/caculating.PNG
 [image7]: Images/joints_annotation_DH.PNG
 ## [Rubric](https://review.udacity.com/#!/rubrics/972/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  

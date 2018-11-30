@@ -12,13 +12,13 @@
 
 [//]: # (Image References)
 
-[image1]: (images%20for%20project%202/Capture%20forword%20kin.PNG)
-[image2]: https://github.com/AzizDulaijan/Project-Kinematics-Pick-Place/blob/master/images%20for%20project%202/theta%201%2C2%2C3.PNG
-[image3]: https://github.com/AzizDulaijan/Project-Kinematics-Pick-Place/blob/master/images%20for%20project%202/9%20got.PNG
-[image4]: https://github.com/AzizDulaijan/Project-Kinematics-Pick-Place/blob/master/images%20for%20project%202/plan%20to%20tube.PNG
-[image5]: https://github.com/AzizDulaijan/Project-Kinematics-Pick-Place/blob/master/images%20for%20project%202/retreving.PNG
-[image6]: https://github.com/AzizDulaijan/Project-Kinematics-Pick-Place/blob/master/images%20for%20project%202/caculating.PNG
-[image7]: 
+[image1]: images%20for%20project%202/Capture%20forword%20kin.PNG
+[image2]: images%20for%20project%202/theta%201%2C2%2C3.PNG
+[image3]: images%20for%20project%202/9%20got.PNG
+[image4]: images%20for%20project%202/plan%20to%20tube.PNG
+[image5]: images%20for%20project%202/retreving.PNG
+[image6]: images%20for%20project%202/caculating.PNG
+[image7]: Images/joints_annotation_DH.PNG
 ## [Rubric](https://review.udacity.com/#!/rubrics/972/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
@@ -221,4 +221,4 @@ Then, I launched the safe_spawner.sh with demo mode parameter set to false. The 
 ![alt text][image4]
 ![alt text][image5]
 ![alt text][image6]
-
+![alt text][image7]

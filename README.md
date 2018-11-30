@@ -18,7 +18,8 @@
 [image4]: Images/plan_to_tube.PNG
 [image5]: Images/retreving.PNG
 [image6]: Images/caculating.PNG
-[image7]: Images/joints_annotation_DH.PNG
+[image7]: Images/an.PNG
+[image8]: Images/kuku_arm_joints.PNG
 ## [Rubric](https://review.udacity.com/#!/rubrics/972/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
@@ -34,7 +35,12 @@ I first launched the forward_kinematics demo to get familiar with kuku arm, and 
 
 #### 2. Using the DH parameter table you derived earlier, create individual transformation matrices about each joint. In addition, also generate a generalized homogeneous transform between base_link and gripper_link using only end-effector(gripper) pose.
 
-##### the DH parameter table:
+##### Annotated Kuku arm with link assignments and joint rotations:
+![alt text][image8]
+![alt text][image7]
+
+
+##### The DH parameter table:
 Links | alpha(i-1) | a(i-1) | d(i-1) | theta(i)
 --- | --- | --- | --- | ---
 0->1 | 0 | 0 | 0.75 | qi
@@ -90,11 +96,15 @@ and because the UDRF model does not follow the DH convention, Rrpy need to corre
 now the wrist center position can be calculated. 
 
 #### inverse Orientation Kinematics:
+
+
 Theta 1 to 3 calculation can be seen from the image below: 
 
 ![alt text][image2]
 
-as for theta 4 to 6 , they can be drived in the fallowing steps:
+
+
+As for theta 4 to 6 , they can be drived in the fallowing steps:
 1 - extract Rotation matrixes from the Homogeneous transformation matrix:
 ```python 
 	R0_1 = T0_1[0:3,0:3]
@@ -221,4 +231,4 @@ Then, I launched the safe_spawner.sh with demo mode parameter set to false. The 
 ![alt text][image4]
 ![alt text][image5]
 ![alt text][image6]
-![alt text][image7]
+
